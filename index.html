@@ -233,19 +233,6 @@
                 style-hover="color: var(--ink);"
                 >Support</a
               >
-              <a
-                href="#"
-                onClick="{{ goChangelog }}"
-                style="
-                  font-size: 11px;
-                  font-weight: 700;
-                  letter-spacing: 1.6px;
-                  text-transform: uppercase;
-                  color: var(--sec);
-                "
-                style-hover="color: var(--ink);"
-                >Changelog</a
-              >
               <button
                 onClick="{{ toggleTheme }}"
                 style="
@@ -4899,202 +4886,6 @@
           </main>
         </sc-if>
 
-        <sc-if value="{{ isChangelog }}">
-          <main style="max-width: 1240px; margin: 0 auto; padding: 80px 32px">
-            <div
-              style="
-                font-size: 13px;
-                font-weight: 900;
-                letter-spacing: 4px;
-                text-transform: uppercase;
-                color: var(--brand);
-              "
-            >
-              Releases
-            </div>
-            <h1
-              style="
-                font-size: clamp(44px, 6vw, 72px);
-                line-height: 0.92;
-                font-weight: 900;
-                letter-spacing: -1.5px;
-                text-transform: uppercase;
-                margin: 24px 0 0;
-              "
-            >
-              Changelog<span style="color: var(--brand)">.</span>
-            </h1>
-
-            <div
-              style="
-                border: 1px dashed var(--brand);
-                padding: 18px 20px;
-                margin-top: 40px;
-                max-width: 760px;
-              "
-            >
-              <div
-                style="
-                  font-family: ui-monospace, Menlo, monospace;
-                  font-size: 12px;
-                  line-height: 1.6;
-                  color: var(--brand);
-                "
-              >
-                PLACEHOLDER — one entry per shipped build. Replace the versions,
-                dates and bullets below with your real release notes.
-              </div>
-            </div>
-
-            <div style="margin-top: 56px; max-width: 860px">
-              <div
-                style="
-                  display: grid;
-                  grid-template-columns: 200px 1fr;
-                  border-top: 1px solid var(--line2);
-                "
-              >
-                <div
-                  style="
-                    padding: 32px 24px 32px 0;
-                    border-bottom: 1px solid var(--line);
-                  "
-                >
-                  <div
-                    style="
-                      font-size: 26px;
-                      font-weight: 900;
-                      letter-spacing: -0.4px;
-                    "
-                  >
-                    [1.2.0]
-                  </div>
-                  <div
-                    style="
-                      font-size: 11px;
-                      font-weight: 700;
-                      letter-spacing: 1.6px;
-                      text-transform: uppercase;
-                      color: var(--sec);
-                      margin-top: 6px;
-                    "
-                  >
-                    [DATE]
-                  </div>
-                </div>
-                <div
-                  style="
-                    padding: 32px 0;
-                    border-bottom: 1px solid var(--line);
-                    display: flex;
-                    flex-direction: column;
-                    gap: 8px;
-                  "
-                >
-                  <div
-                    style="font-size: 15px; line-height: 1.6; color: var(--sec)"
-                  >
-                    [What shipped in this release.]
-                  </div>
-                  <div
-                    style="font-size: 15px; line-height: 1.6; color: var(--sec)"
-                  >
-                    [Second bullet.]
-                  </div>
-                </div>
-
-                <div
-                  style="
-                    padding: 32px 24px 32px 0;
-                    border-bottom: 1px solid var(--line);
-                  "
-                >
-                  <div
-                    style="
-                      font-size: 26px;
-                      font-weight: 900;
-                      letter-spacing: -0.4px;
-                    "
-                  >
-                    [1.1.0]
-                  </div>
-                  <div
-                    style="
-                      font-size: 11px;
-                      font-weight: 700;
-                      letter-spacing: 1.6px;
-                      text-transform: uppercase;
-                      color: var(--sec);
-                      margin-top: 6px;
-                    "
-                  >
-                    [DATE]
-                  </div>
-                </div>
-                <div
-                  style="
-                    padding: 32px 0;
-                    border-bottom: 1px solid var(--line);
-                    display: flex;
-                    flex-direction: column;
-                    gap: 8px;
-                  "
-                >
-                  <div
-                    style="font-size: 15px; line-height: 1.6; color: var(--sec)"
-                  >
-                    [What shipped in this release.]
-                  </div>
-                </div>
-
-                <div
-                  style="
-                    padding: 32px 24px 32px 0;
-                    border-bottom: 1px solid var(--line);
-                  "
-                >
-                  <div
-                    style="
-                      font-size: 26px;
-                      font-weight: 900;
-                      letter-spacing: -0.4px;
-                    "
-                  >
-                    [1.0.0]
-                  </div>
-                  <div
-                    style="
-                      font-size: 11px;
-                      font-weight: 700;
-                      letter-spacing: 1.6px;
-                      text-transform: uppercase;
-                      color: var(--sec);
-                      margin-top: 6px;
-                    "
-                  >
-                    [DATE]
-                  </div>
-                </div>
-                <div
-                  style="
-                    padding: 32px 0;
-                    border-bottom: 1px solid var(--line);
-                    display: flex;
-                    flex-direction: column;
-                    gap: 8px;
-                  "
-                >
-                  <div
-                    style="font-size: 15px; line-height: 1.6; color: var(--sec)"
-                  >
-                    [First public release.]
-                  </div>
-                </div>
-              </div>
-            </div>
-          </main>
-        </sc-if>
-
         <footer style="border-top: 1px solid var(--line); margin-top: 0">
           <div
             style="
@@ -5169,12 +4960,6 @@
                 onClick="{{ goPricing }}"
                 style="font-size: 14px; color: var(--ink)"
                 >Pricing</a
-              >
-              <a
-                href="#"
-                onClick="{{ goChangelog }}"
-                style="font-size: 14px; color: var(--ink)"
-                >Changelog</a
               >
             </div>
             <div style="display: flex; flex-direction: column; gap: 12px">
@@ -5270,7 +5055,7 @@
           const t = this.props.defaultTheme === 'light' ? 'light' : 'dark';
           document.documentElement.setAttribute('data-theme', t);
           const h = (location.hash || '').replace('#', '');
-          if (['home','pricing','support','privacy','terms','changelog'].includes(h)) {
+          if (['home','pricing','support','privacy','terms'].includes(h)) {
             this.setState({ page: h });
           }
         }
@@ -5296,13 +5081,11 @@
             isSupport: p === 'support',
             isPrivacy: p === 'privacy',
             isTerms: p === 'terms',
-            isChangelog: p === 'changelog',
             goHome: this.go('home'),
             goPricing: this.go('pricing'),
             goSupport: this.go('support'),
             goPrivacy: this.go('privacy'),
             goTerms: this.go('terms'),
-            goChangelog: this.go('changelog'),
             toggleTheme: this.toggleTheme,
             supportEmailText: email,
             mailtoHref: 'mailto:' + email,
