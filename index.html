@@ -1,21 +1,698 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Self Iterate &mdash; Legal</title>
-<link rel="stylesheet" href="style.css">
+<script src="./support.js"></script>
 </head>
 <body>
-<main>
-<p class="company">Self Iterate, Inc.</p>
-<h1>Legal</h1>
-<p class="landing-blurb">Legal documents for LiftIt and other Self Iterate, Inc. services.</p>
-<ul class="doc-links">
-  <li><a href="privacy">Privacy Policy</a></li>
-  <li><a href="terms">Terms of Use</a></li>
-</ul>
-<p class="contact">Questions? Contact <a href="mailto:legal@self-iterate.com">legal@self-iterate.com</a>.</p>
-</main>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #060606; --bg2: #101010; --bg3: #1C1C1A;
+    --ink: #F5F5F0; --sec: #8A8A82; --dis: #55554E;
+    --line: rgba(255,255,255,0.14); --line2: rgba(255,255,255,0.30);
+    --brand: #2294FB; --brand-d: #1B76CC; --amber: #E3A23C;
+  }
+  html[data-theme="light"] {
+    --bg: #F5F5F0; --bg2: #ECECE4; --bg3: #E4E4DB;
+    --ink: #141414; --sec: #6E6E64; --dis: #B5B5AA;
+    --line: rgba(0,0,0,0.16); --line2: rgba(0,0,0,0.32);
+    --brand: #2294FB; --brand-d: #1B76CC; --amber: #B97A1E;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--ink); font-family: Archivo, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: var(--ink); text-decoration: none; }
+  a:hover { color: var(--brand); }
+  ::selection { background: var(--brand); color: #fff; }
+  [data-icon="light"] { display: none !important; }
+  html[data-theme="light"] [data-icon="dark"] { display: none !important; }
+  html[data-theme="light"] [data-icon="light"] { display: block !important; }
+  :focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+</style>
+</helmet>
+
+<div style="background: var(--bg); color: var(--ink); min-height: 100vh; font-family: Archivo, Helvetica, Arial, sans-serif;">
+
+  <header style="position: sticky; top: 0; z-index: 50; background: var(--bg); border-bottom: 1px solid var(--line);">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 0 32px; height: 68px; display: flex; align-items: center; gap: 40px;">
+      <a href="#" onClick="{{ goHome }}" style="display: flex; align-items: center; gap: 10px; flex-shrink: 0;">
+        <img data-icon="dark" src="assets/hex_icon_dark.svg" alt="" width="26" height="26" style="display: block;" />
+        <img data-icon="light" src="assets/hex_icon_light.svg" alt="" width="26" height="26" style="display: block;" />
+        <span style="font-size: 14px; font-weight: 900; letter-spacing: 4px; text-transform: uppercase;">LiftIt</span>
+      </a>
+      <nav style="display: flex; align-items: center; gap: 28px; margin-left: auto;">
+        <a href="#" onClick="{{ goHome }}" style="font-size: 11px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--sec);" style-hover="color: var(--ink);">Overview</a>
+        <a href="#" onClick="{{ goPricing }}" style="font-size: 11px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--sec);" style-hover="color: var(--ink);">Pricing</a>
+        <a href="#" onClick="{{ goSupport }}" style="font-size: 11px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--sec);" style-hover="color: var(--ink);">Support</a>
+        <a href="#" onClick="{{ goChangelog }}" style="font-size: 11px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--sec);" style-hover="color: var(--ink);">Changelog</a>
+        <button onClick="{{ toggleTheme }}" style="background: transparent; border: 1px solid var(--line); color: var(--sec); font-family: inherit; font-size: 10px; font-weight: 800; letter-spacing: 1.6px; text-transform: uppercase; padding: 7px 12px; cursor: pointer; white-space: nowrap; line-height: 1.2;" style-hover="color: var(--ink); border-color: var(--line2);">Dark / Light</button>
+        <a href="#" onClick="{{ goHome }}" style="display: inline-flex; align-items: center; white-space: nowrap; line-height: 1.2; background: var(--brand); color: #fff; font-size: 11px; font-weight: 900; letter-spacing: 1.6px; text-transform: uppercase; padding: 10px 18px;" style-hover="background: var(--brand-d); color: #fff;">Get the app →</a>
+      </nav>
+    </div>
+  </header>
+
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+  <main>
+    <section style="max-width: 1240px; margin: 0 auto; padding: 96px 32px 72px;">
+      <div style="font-size: 13px; font-weight: 900; letter-spacing: 4px; text-transform: uppercase; color: var(--brand);">Weightlifting, logged properly</div>
+      <h1 style="font-size: clamp(56px, 9vw, 116px); line-height: 0.88; font-weight: 900; letter-spacing: -2.5px; text-transform: uppercase; margin: 28px 0 0; max-width: 900px; text-wrap: balance;">Train<br />today<span style="color: var(--brand);">.</span></h1>
+      <p style="font-size: 19px; line-height: 1.5; color: var(--sec); max-width: 540px; margin: 32px 0 0; text-wrap: pretty;">Build programs, log every set in real time, and watch the numbers move. Lift It is a fast, offline-first training log for people who care what the bar weighed last week.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px;">
+        <a href="{{ appStoreHref }}" style="display: flex; flex-direction: column; background: var(--brand); color: #fff; padding: 14px 26px; min-width: 220px;" style-hover="background: var(--brand-d); color: #fff;">
+          <span style="font-size: 10px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; opacity: 0.8;">Download on the</span>
+          <span style="font-size: 19px; font-weight: 900; letter-spacing: -0.3px; text-transform: uppercase;">App Store</span>
+        </a>
+        <a href="{{ playStoreHref }}" style="display: flex; flex-direction: column; border: 1px solid var(--line2); color: var(--ink); padding: 14px 26px; min-width: 220px;" style-hover="border-color: var(--brand); color: var(--brand);">
+          <span style="font-size: 10px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--sec);">Get it on</span>
+          <span style="font-size: 19px; font-weight: 900; letter-spacing: -0.3px; text-transform: uppercase;">Google Play</span>
+        </a>
+      </div>
+      <div style="font-size: 11px; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; color: var(--sec); margin-top: 20px;">Free tier · 4-day trial on paid plans · iOS &amp; Android</div>
+    </section>
+
+    <div style="border-top: 1px solid var(--line);"></div>
+
+    <section style="max-width: 1240px; margin: 0 auto; padding: 72px 32px;">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 16px;">
+        <h2 style="font-size: 34px; line-height: 1; font-weight: 800; letter-spacing: -0.5px; text-transform: uppercase; margin: 0;">Inside the app</h2>
+        <div style="font-size: 11px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--sec);">Home / Active workout / Activity</div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 48px; justify-content: flex-start; margin-top: 56px;">
+
+        <figure style="margin: 0; display: flex; flex-direction: column; gap: 16px;">
+          <div style="width: 320px; height: 660px; background: #060606; border: 1px solid var(--line2); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; color: #F5F5F0;">
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 18px 4px; font-size: 11px; font-weight: 700; color: #F5F5F0; font-variant-numeric: tabular-nums;">
+              <span>9:41</span><span style="letter-spacing: 2px; color: #8A8A82;">▮▮▮ ▮</span>
+            </div>
+            <div style="flex: 1; overflow: hidden; padding: 10px 16px 0;">
+              <div style="font-size: 13px; font-weight: 900; letter-spacing: 4px; text-transform: uppercase;">LiftIt</div>
+              <div style="font-size: 42px; line-height: 40px; font-weight: 900; letter-spacing: -1px; text-transform: uppercase; margin: 12px 0 16px;">Train<br />today<span style="color: #2294FB;">.</span></div>
+              <div style="font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #8A8A82; margin-bottom: 8px;">Push Pull Legs</div>
+              <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-bottom: 6px;">
+                <div style="text-align: center; font-size: 10px; font-weight: 600; color: #8A8A82;">S</div>
+                <div style="text-align: center; font-size: 10px; font-weight: 600; color: #8A8A82;">M</div>
+                <div style="text-align: center; font-size: 10px; font-weight: 600; color: #8A8A82;">T</div>
+                <div style="text-align: center; font-size: 10px; font-weight: 600; color: #8A8A82;">W</div>
+                <div style="text-align: center; font-size: 10px; font-weight: 600; color: #8A8A82;">T</div>
+                <div style="text-align: center; font-size: 10px; font-weight: 600; color: #8A8A82;">F</div>
+                <div style="text-align: center; font-size: 10px; font-weight: 600; color: #8A8A82;">S</div>
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-bottom: 16px; justify-items: center;">
+                <div style="width: 30px; height: 30px; border: 1.5px solid #55554E; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #55554E;">9</div>
+                <div style="width: 30px; height: 30px; border: 1.5px solid #2294FB; background: #2294FB; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #fff;">10</div>
+                <div style="width: 30px; height: 30px; border: 1.5px solid #55554E; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #55554E;">11</div>
+                <div style="width: 30px; height: 30px; border: 1.5px solid #2294FB; background: #2294FB; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #fff;">12</div>
+                <div style="width: 30px; height: 30px; border: 1.5px solid #F5F5F0; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #F5F5F0;">13</div>
+                <div style="width: 30px; height: 30px; border: 1.5px solid #2294FB; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #2294FB;">14</div>
+                <div style="width: 30px; height: 30px; border: 1.5px solid #55554E; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: #55554E;">15</div>
+              </div>
+              <div style="border-top: 1px solid rgba(255,255,255,0.14); border-bottom: 1px solid rgba(255,255,255,0.14); padding: 18px 0;">
+                <div style="height: 84px; border: 1px solid rgba(255,255,255,0.14); border-radius: 4px; margin-bottom: 16px; background: repeating-linear-gradient(135deg, #101010 0 8px, #1C1C1A 8px 16px); display: flex; align-items: center; justify-content: center;">
+                  <span style="font-family: ui-monospace, Menlo, monospace; font-size: 9px; letter-spacing: 1px; color: #8A8A82;">workout photo</span>
+                </div>
+                <div style="font-size: 15px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #2294FB;">Today · Upper Body A</div>
+                <div style="border-bottom: 1px solid rgba(255,255,255,0.14); padding-bottom: 12px;">
+                  <div style="font-size: 23px; line-height: 28px; font-weight: 900; text-transform: uppercase; margin-top: 4px;">5 exercises / 48 min</div>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 12px;">
+                  <div style="display: flex; gap: 6px;">
+                    <span style="border: 1px solid rgba(255,255,255,0.14); padding: 3px 9px; font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: #8A8A82;">Push</span>
+                    <span style="border: 1px solid rgba(255,255,255,0.14); padding: 3px 9px; font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: #8A8A82;">Barbell</span>
+                  </div>
+                  <span style="color: #8A8A82; font-size: 14px;">⌄</span>
+                </div>
+                <div style="background: #2294FB; color: #fff; text-align: center; padding: 12px; margin-top: 16px; font-size: 14px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase;">Start Workout →</div>
+              </div>
+              <div style="font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #8A8A82; margin: 16px 0 8px;">Coming Up</div>
+              <div style="border-top: 1px solid rgba(255,255,255,0.14); border-bottom: 1px solid rgba(255,255,255,0.14); display: flex; align-items: center; padding: 10px 0;">
+                <div style="flex: 1;">
+                  <div style="font-size: 16px; line-height: 21px; font-weight: 800; text-transform: uppercase;">Lower Body B</div>
+                  <div style="font-size: 11px; letter-spacing: 0.5px; text-transform: uppercase; color: #8A8A82; font-variant-numeric: tabular-nums; margin-top: 2px;">Fri · 6 exercises · 52 min</div>
+                </div>
+                <div style="width: 28px; height: 28px; border-radius: 50%; border: 2px solid #2294FB; color: #2294FB; display: flex; align-items: center; justify-content: center; font-size: 11px;">▶</div>
+              </div>
+            </div>
+            <div style="border-top: 1px solid rgba(255,255,255,0.14); display: flex; align-items: center; justify-content: space-around; padding: 8px 0 14px;">
+              <span style="font-size: 10px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; color: #2294FB;">Home</span>
+              <span style="font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #8A8A82;">Programs</span>
+              <span style="font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #8A8A82;">Activity</span>
+              <span style="font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #8A8A82;">Settings</span>
+            </div>
+          </div>
+          <figcaption style="font-size: 11px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--sec);">01 — Today's session, one tap away</figcaption>
+        </figure>
+
+        <figure style="margin: 0; display: flex; flex-direction: column; gap: 16px;">
+          <div style="width: 320px; height: 660px; background: #060606; border: 1px solid var(--line2); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; color: #F5F5F0;">
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 18px 4px; font-size: 11px; font-weight: 700; font-variant-numeric: tabular-nums;">
+              <span>9:41</span><span style="letter-spacing: 2px; color: #8A8A82;">▮▮▮ ▮</span>
+            </div>
+            <div style="flex: 1; overflow: hidden; padding: 10px 16px 0;">
+              <div style="background: #2294FB; color: #fff; display: flex; align-items: center; justify-content: space-between; padding: 12px 16px;">
+                <span style="font-size: 20px; font-weight: 400;">−</span>
+                <div style="text-align: center;">
+                  <div style="font-size: 10px; font-weight: 900; letter-spacing: 2.2px; text-transform: uppercase;">Rest</div>
+                  <div style="font-size: 30px; line-height: 32px; font-weight: 900; font-variant-numeric: tabular-nums;">01:30</div>
+                </div>
+                <span style="font-size: 20px; font-weight: 400;">+</span>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 8px;">
+                <span style="font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #8A8A82;">Dismiss</span>
+                <span style="font-size: 22px; line-height: 24px; font-weight: 900; font-variant-numeric: tabular-nums;">24:18</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px; margin: 26px 0 12px;">
+                <span style="font-size: 21px; line-height: 25px; font-weight: 800; text-transform: uppercase;">A · Barbell Bench Press</span>
+              </div>
+              <div style="display: flex; gap: 8px; align-items: flex-end;">
+                <div style="width: 58px; height: 66px; border: 1px solid #E3A23C; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                  <span style="font-size: 20px; line-height: 24px; font-weight: 900; color: #E3A23C;">95</span>
+                  <span style="font-size: 10px; letter-spacing: 1px; color: #E3A23C;">×10</span>
+                </div>
+                <div style="width: 58px; height: 66px; background: #2294FB; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                  <span style="font-size: 20px; line-height: 24px; font-weight: 900; color: #fff;">185</span>
+                  <span style="font-size: 10px; letter-spacing: 1px; font-weight: 800; color: #fff;">×8</span>
+                </div>
+                <div style="width: 58px; height: 66px; background: #2294FB; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                  <span style="font-size: 20px; line-height: 24px; font-weight: 900; color: #fff;">185</span>
+                  <span style="font-size: 10px; letter-spacing: 1px; font-weight: 800; color: #fff;">×8</span>
+                </div>
+                <div style="width: 58px; height: 66px; border: 1px solid rgba(255,255,255,0.30); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                  <span style="font-size: 20px; line-height: 24px; font-weight: 900;">185</span>
+                  <span style="font-size: 10px; letter-spacing: 1px; color: #8A8A82;">×8</span>
+                </div>
+                <div style="width: 42px; height: 66px; border: 1px dashed rgba(255,255,255,0.30); display: flex; align-items: center; justify-content: center; font-size: 18px; color: #8A8A82;">+</div>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px; margin: 30px 0 12px;">
+                <span style="font-size: 21px; line-height: 25px; font-weight: 800; text-transform: uppercase;">Incline DB Press</span>
+              </div>
+              <div style="display: flex; gap: 8px; align-items: flex-end;">
+                <div style="width: 58px; height: 66px; background: #2294FB; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                  <span style="font-size: 20px; line-height: 24px; font-weight: 900; color: #fff;">60</span>
+                  <span style="font-size: 10px; letter-spacing: 1px; font-weight: 800; color: #fff;">×12</span>
+                </div>
+                <div style="width: 58px; height: 66px; border: 1px solid rgba(255,255,255,0.30); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                  <span style="font-size: 20px; line-height: 24px; font-weight: 900;">60</span>
+                  <span style="font-size: 10px; letter-spacing: 1px; color: #8A8A82;">×12</span>
+                </div>
+                <div style="width: 58px; height: 66px; border: 1px solid rgba(255,255,255,0.30); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                  <span style="font-size: 20px; line-height: 24px; font-weight: 900;">60</span>
+                  <span style="font-size: 10px; letter-spacing: 1px; color: #8A8A82;">×12</span>
+                </div>
+                <div style="width: 42px; height: 66px; border: 1px dashed rgba(255,255,255,0.30); display: flex; align-items: center; justify-content: center; font-size: 18px; color: #8A8A82;">+</div>
+              </div>
+              <div style="border: 1px dashed rgba(255,255,255,0.30); text-align: center; padding: 12px; margin-top: 30px; font-size: 13px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: #8A8A82;">Add Exercise</div>
+              <div style="background: #2294FB; color: #fff; text-align: center; padding: 13px; margin-top: 12px; font-size: 14px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase;">Finish Workout</div>
+            </div>
+          </div>
+          <figcaption style="font-size: 11px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--sec);">02 — Log a set in one tap, rest timer runs itself</figcaption>
+        </figure>
+
+        <figure style="margin: 0; display: flex; flex-direction: column; gap: 16px;">
+          <div style="width: 320px; height: 660px; background: #060606; border: 1px solid var(--line2); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; color: #F5F5F0;">
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 12px 18px 4px; font-size: 11px; font-weight: 700; font-variant-numeric: tabular-nums;">
+              <span>9:41</span><span style="letter-spacing: 2px; color: #8A8A82;">▮▮▮ ▮</span>
+            </div>
+            <div style="flex: 1; overflow: hidden; padding: 10px 16px 0;">
+              <div style="font-size: 13px; font-weight: 900; letter-spacing: 4px; text-transform: uppercase;">Activity</div>
+              <div style="display: flex; gap: 18px; margin: 18px 0 20px; border-bottom: 1px solid rgba(255,255,255,0.14); padding-bottom: 10px;">
+                <span style="font-size: 11px; font-weight: 900; letter-spacing: 1.2px; text-transform: uppercase; color: #2294FB;">Lifts</span>
+                <span style="font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: #8A8A82;">Body</span>
+                <span style="font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: #8A8A82;">Photos</span>
+                <span style="font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: #8A8A82;">History</span>
+              </div>
+              <div style="border: 1px solid rgba(255,255,255,0.14); padding: 16px;">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                  <span style="font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: #8A8A82;">Total Volume · 12 Weeks ⌄</span>
+                  <span style="font-size: 12px; color: #8A8A82;">⬒</span>
+                </div>
+                <div style="display: flex; align-items: baseline; gap: 6px; margin-top: 8px;">
+                  <span style="font-size: 44px; line-height: 50px; font-weight: 800; letter-spacing: -0.5px; font-variant-numeric: tabular-nums;">184,320</span>
+                  <span style="font-size: 13px; font-weight: 600; color: #8A8A82;">lbs</span>
+                </div>
+              </div>
+              <div style="display: flex; margin-top: -1px;">
+                <div style="flex: 1; border: 1px solid rgba(255,255,255,0.14); padding: 16px;">
+                  <div style="font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: #8A8A82;">Workouts</div>
+                  <div style="font-size: 28px; line-height: 31px; font-weight: 800; margin-top: 8px; font-variant-numeric: tabular-nums;">38</div>
+                </div>
+                <div style="flex: 1; border: 1px solid rgba(255,255,255,0.14); border-left: none; padding: 16px;">
+                  <div style="font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: #8A8A82;">Duration</div>
+                  <div style="font-size: 28px; line-height: 31px; font-weight: 800; margin-top: 8px; font-variant-numeric: tabular-nums;">41h</div>
+                </div>
+              </div>
+              <div style="display: flex; align-items: flex-end; gap: 5px; height: 100px; margin-top: 24px;">
+                <div style="flex: 1; height: 34%; background: rgba(255,255,255,0.14);"></div>
+                <div style="flex: 1; height: 52%; background: rgba(255,255,255,0.14);"></div>
+                <div style="flex: 1; height: 41%; background: rgba(255,255,255,0.14);"></div>
+                <div style="flex: 1; height: 66%; background: rgba(255,255,255,0.14);"></div>
+                <div style="flex: 1; height: 58%; background: rgba(255,255,255,0.14);"></div>
+                <div style="flex: 1; height: 74%; background: rgba(255,255,255,0.14);"></div>
+                <div style="flex: 1; height: 63%; background: rgba(255,255,255,0.30);"></div>
+                <div style="flex: 1; height: 81%; background: rgba(255,255,255,0.30);"></div>
+                <div style="flex: 1; height: 70%; background: rgba(255,255,255,0.30);"></div>
+                <div style="flex: 1; height: 92%; background: #2294FB;"></div>
+                <div style="flex: 1; height: 78%; background: #2294FB;"></div>
+                <div style="flex: 1; height: 100%; background: #2294FB;"></div>
+              </div>
+              <div style="font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #8A8A82; margin: 28px 0 10px;">Recent Sessions</div>
+              <div style="border-top: 1px solid rgba(255,255,255,0.14); border-bottom: 1px solid rgba(255,255,255,0.14); padding: 11px 0; display: flex; align-items: center; justify-content: space-between;">
+                <div>
+                  <div style="font-size: 15px; font-weight: 800; text-transform: uppercase;">Upper Body A</div>
+                  <div style="font-size: 11px; letter-spacing: 0.5px; text-transform: uppercase; color: #8A8A82; font-variant-numeric: tabular-nums; margin-top: 2px;">Aug 13 · 52 min · 18 sets</div>
+                </div>
+                <span style="border: 1px solid #2294FB; color: #2294FB; font-size: 9px; font-weight: 900; letter-spacing: 1px; padding: 3px 7px;">PR</span>
+              </div>
+              <div style="border-bottom: 1px solid rgba(255,255,255,0.14); padding: 11px 0;">
+                <div style="font-size: 15px; font-weight: 800; text-transform: uppercase;">Lower Body B</div>
+                <div style="font-size: 11px; letter-spacing: 0.5px; text-transform: uppercase; color: #8A8A82; font-variant-numeric: tabular-nums; margin-top: 2px;">Aug 11 · 61 min · 21 sets</div>
+              </div>
+            </div>
+            <div style="border-top: 1px solid rgba(255,255,255,0.14); display: flex; align-items: center; justify-content: space-around; padding: 8px 0 14px;">
+              <span style="font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #8A8A82;">Home</span>
+              <span style="font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #8A8A82;">Programs</span>
+              <span style="font-size: 10px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase; color: #2294FB;">Activity</span>
+              <span style="font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #8A8A82;">Settings</span>
+            </div>
+          </div>
+          <figcaption style="font-size: 11px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--sec);">03 — Volume, streaks and PRs over time</figcaption>
+        </figure>
+
+      </div>
+    </section>
+
+    <div style="border-top: 1px solid var(--line);"></div>
+
+    <section style="max-width: 1240px; margin: 0 auto; padding: 72px 32px;">
+      <h2 style="font-size: 34px; line-height: 1; font-weight: 800; letter-spacing: -0.5px; text-transform: uppercase; margin: 0 0 40px; border-bottom: 1px solid var(--line); padding-bottom: 16px;">What it does</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0;">
+        <div style="border: 1px solid var(--line); margin: 0 -0.5px -0.5px 0; padding: 32px;">
+          <div style="font-size: 11px; font-weight: 900; letter-spacing: 2px; color: var(--brand);">01</div>
+          <h3 style="font-size: 21px; font-weight: 800; text-transform: uppercase; letter-spacing: -0.2px; margin: 14px 0 10px;">Programs</h3>
+          <p style="font-size: 15px; line-height: 1.55; color: var(--sec); margin: 0; text-wrap: pretty;">Build custom programs with scheduled weekly days or ad-hoc workouts you pick session by session. A workout is a reusable template — add it to as many programs as you like.</p>
+        </div>
+        <div style="border: 1px solid var(--line); margin: 0 -0.5px -0.5px 0; padding: 32px;">
+          <div style="font-size: 11px; font-weight: 900; letter-spacing: 2px; color: var(--brand);">02</div>
+          <h3 style="font-size: 21px; font-weight: 800; text-transform: uppercase; letter-spacing: -0.2px; margin: 14px 0 10px;">Workout tracking</h3>
+          <p style="font-size: 15px; line-height: 1.55; color: var(--sec); margin: 0; text-wrap: pretty;">Log sets, reps and weight in real time. Rest timers start automatically after a working set, with audio cues and a lock-screen Live Activity.</p>
+        </div>
+        <div style="border: 1px solid var(--line); margin: 0 -0.5px -0.5px 0; padding: 32px;">
+          <div style="font-size: 11px; font-weight: 900; letter-spacing: 2px; color: var(--brand);">03</div>
+          <h3 style="font-size: 21px; font-weight: 800; text-transform: uppercase; letter-spacing: -0.2px; margin: 14px 0 10px;">Progress &amp; history</h3>
+          <p style="font-size: 15px; line-height: 1.55; color: var(--sec); margin: 0; text-wrap: pretty;">Calendar history, body-weight log, progress photos, body measurements and muscle-volume analytics. Personal records tracked from working sets only.</p>
+        </div>
+        <div style="border: 1px solid var(--line); margin: 0 -0.5px -0.5px 0; padding: 32px;">
+          <div style="font-size: 11px; font-weight: 900; letter-spacing: 2px; color: var(--brand);">04</div>
+          <h3 style="font-size: 21px; font-weight: 800; text-transform: uppercase; letter-spacing: -0.2px; margin: 14px 0 10px;">Exercise library</h3>
+          <p style="font-size: 15px; line-height: 1.55; color: var(--sec); margin: 0; text-wrap: pretty;">A searchable database organised by muscle group, shipped inside the app. No network requests, no loading state — it works offline from the first launch.</p>
+        </div>
+        <div style="border: 1px solid var(--line); margin: 0 -0.5px -0.5px 0; padding: 32px;">
+          <div style="font-size: 11px; font-weight: 900; letter-spacing: 2px; color: var(--brand);">05</div>
+          <h3 style="font-size: 21px; font-weight: 800; text-transform: uppercase; letter-spacing: -0.2px; margin: 14px 0 10px;">Supersets &amp; drop sets</h3>
+          <p style="font-size: 15px; line-height: 1.55; color: var(--sec); margin: 0; text-wrap: pretty;">Group exercises into supersets, circuits, warm-ups and cool-downs. Rest is taken between rounds, not between exercises inside a round.</p>
+        </div>
+        <div style="border: 1px solid var(--line); margin: 0 -0.5px -0.5px 0; padding: 32px;">
+          <div style="font-size: 11px; font-weight: 900; letter-spacing: 2px; color: var(--brand);">06</div>
+          <h3 style="font-size: 21px; font-weight: 800; text-transform: uppercase; letter-spacing: -0.2px; margin: 14px 0 10px;">Your account</h3>
+          <p style="font-size: 15px; line-height: 1.55; color: var(--sec); margin: 0; text-wrap: pretty;">Sign in with Google or Apple, set your fitness goals and weight units, and pick a dark or light theme. Premium backs everything up to the cloud.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="background: var(--brand); color: #fff; margin-top: 40px;">
+      <div style="max-width: 1240px; margin: 0 auto; padding: 80px 32px;">
+        <div style="font-size: 48px; line-height: 1.02; font-weight: 900; letter-spacing: -1.2px; text-transform: uppercase; max-width: 900px;">Stop guessing what you lifted last week.</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px;">
+          <a href="{{ appStoreHref }}" style="background: #fff; color: #141414; padding: 14px 26px; font-size: 14px; font-weight: 900; letter-spacing: 1.4px; text-transform: uppercase;" style-hover="color: #141414; opacity: 0.85;">App Store →</a>
+          <a href="{{ playStoreHref }}" style="border: 1px solid rgba(255,255,255,0.6); color: #fff; padding: 14px 26px; font-size: 14px; font-weight: 900; letter-spacing: 1.4px; text-transform: uppercase;" style-hover="background: #fff; color: #2294FB;">Google Play →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isPricing }}">
+  <main style="max-width: 1240px; margin: 0 auto; padding: 80px 32px;">
+    <div style="font-size: 13px; font-weight: 900; letter-spacing: 4px; text-transform: uppercase; color: var(--brand);">Pricing</div>
+    <h1 style="font-size: clamp(44px, 6vw, 72px); line-height: 0.92; font-weight: 900; letter-spacing: -1.5px; text-transform: uppercase; margin: 24px 0 0;">Three tiers.<br />No ads, ever<span style="color: var(--brand);">.</span></h1>
+    <p style="font-size: 17px; line-height: 1.5; color: var(--sec); max-width: 520px; margin: 24px 0 56px;">Paid plans start with a 4-day free trial. Cancel any time from the App Store or Play Store.</p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 0;">
+      <div style="border: 1px solid var(--line); margin: 0 -0.5px -0.5px 0; padding: 32px; display: flex; flex-direction: column;">
+        <div style="font-size: 22px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.5px;">Free</div>
+        <div style="font-size: 44px; line-height: 1; font-weight: 900; letter-spacing: -1px; margin: 20px 0 6px;">$0</div>
+        <div style="font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--sec);">Forever</div>
+        <div style="border-top: 1px solid var(--line); margin: 24px 0 0; padding-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-size: 14px; line-height: 1.45; color: var(--sec);">1 saved program</div>
+          <div style="font-size: 14px; line-height: 1.45; color: var(--sec);">Unlimited set logging, rest timer &amp; audio cues</div>
+          <div style="font-size: 14px; line-height: 1.45; color: var(--sec);">Full exercise library, offline</div>
+          <div style="font-size: 14px; line-height: 1.45; color: var(--sec);">30 days of history</div>
+          <div style="font-size: 14px; line-height: 1.45; color: var(--sec);">Per-lift strength trends, body-weight log, badges</div>
+        </div>
+      </div>
+
+      <div style="border: 1px solid var(--line); margin: 0 -0.5px -0.5px 0; padding: 32px; display: flex; flex-direction: column;">
+        <div style="font-size: 22px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.5px;">Basic</div>
+        <div style="font-size: 44px; line-height: 1; font-weight: 900; letter-spacing: -1px; margin: 20px 0 6px;">$6.99<span style="font-size: 16px; font-weight: 600; color: var(--sec);"> / mo</span></div>
+        <div style="font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--sec);">or $49.99 / year</div>
+        <div style="font-size: 13px; line-height: 1.5; color: var(--ink); margin-top: 16px;">Keeps your last 100 sessions on this phone.</div>
+        <div style="border-top: 1px solid var(--line); margin: 24px 0 0; padding-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-size: 14px; line-height: 1.45; color: var(--sec);">3 saved programs, unlimited generation</div>
+          <div style="font-size: 14px; line-height: 1.45; color: var(--sec);">Full workout history &amp; PR tracking</div>
+          <div style="font-size: 14px; line-height: 1.45; color: var(--sec);">Auto progressive overload &amp; deloads</div>
+          <div style="font-size: 14px; line-height: 1.45; color: var(--sec);">Advanced set types — drop, super, RIR</div>
+          <div style="font-size: 14px; line-height: 1.45; color: var(--sec);">Body measurements &amp; 15 progress photos</div>
+        </div>
+      </div>
+
+      <div style="border: 1px solid var(--brand); background: var(--brand); color: #fff; margin: 0 -0.5px -0.5px 0; padding: 32px; display: flex; flex-direction: column;">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px;">
+          <span style="font-size: 22px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.5px;">Premium</span>
+          <span style="font-size: 9px; font-weight: 900; letter-spacing: 1.4px; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.6); padding: 3px 7px;">Most complete</span>
+        </div>
+        <div style="font-size: 44px; line-height: 1; font-weight: 900; letter-spacing: -1px; margin: 20px 0 6px;">$9.99<span style="font-size: 16px; font-weight: 600; opacity: 0.75;"> / mo</span></div>
+        <div style="font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; opacity: 0.8;">or $69.99 / year</div>
+        <div style="font-size: 13px; line-height: 1.5; margin-top: 16px;">Cloud backup. Lifetime history, on every device.</div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.4); margin: 24px 0 0; padding-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-size: 14px; line-height: 1.45; opacity: 0.9;">Everything in Basic</div>
+          <div style="font-size: 14px; line-height: 1.45; opacity: 0.9;">Unlimited programs &amp; progress photos</div>
+          <div style="font-size: 14px; line-height: 1.45; opacity: 0.9;">Muscle-volume analytics</div>
+          <div style="font-size: 14px; line-height: 1.45; opacity: 0.9;">Apple Health sync</div>
+          <div style="font-size: 14px; line-height: 1.45; opacity: 0.9;">Live Activity &amp; lock-screen widget</div>
+          <div style="font-size: 14px; line-height: 1.45; opacity: 0.9;">Cloud sync across devices</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-top: 1px solid var(--line); margin-top: 56px; padding-top: 24px; font-size: 13px; line-height: 1.6; color: var(--sec); max-width: 640px;">Subscriptions are billed through the App Store or Google Play and renew automatically until cancelled. Manage or cancel in your store account settings.</div>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isSupport }}">
+  <main style="max-width: 1240px; margin: 0 auto; padding: 80px 32px;">
+    <div style="font-size: 13px; font-weight: 900; letter-spacing: 4px; text-transform: uppercase; color: var(--brand);">Support</div>
+    <h1 style="font-size: clamp(44px, 6vw, 72px); line-height: 0.92; font-weight: 900; letter-spacing: -1.5px; text-transform: uppercase; margin: 24px 0 0;">Common<br />questions<span style="color: var(--brand);">.</span></h1>
+    <p style="font-size: 17px; line-height: 1.5; color: var(--sec); max-width: 520px; margin: 24px 0 0;">Still stuck? Email <a href="{{ mailtoHref }}" style="color: var(--brand); text-decoration: none;" style-hover="text-decoration: underline;">{{ supportEmailText }}</a> and we'll get back to you.</p>
+
+    <div style="margin-top: 64px; display: grid; grid-template-columns: 220px 1fr; gap: 0; border-top: 1px solid var(--line2);">
+      <div style="padding: 32px 24px 32px 0; border-bottom: 1px solid var(--line); font-size: 12px; font-weight: 900; letter-spacing: 1.8px; text-transform: uppercase; color: var(--brand);">Workout</div>
+      <div style="padding: 32px 0; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 28px;">
+        <div>
+          <h3 style="font-size: 18px; font-weight: 800; margin: 0 0 8px;">How does the rest timer work?</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: var(--sec); margin: 0; max-width: 640px;">The rest timer starts automatically after you complete a working set. You can adjust the time or dismiss it at any point.</p>
+        </div>
+        <div>
+          <h3 style="font-size: 18px; font-weight: 800; margin: 0 0 8px;">How does the workout stopwatch work?</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: var(--sec); margin: 0; max-width: 640px;">The stopwatch starts from 0:00 as soon as you open a workout. It stays local to the screen until you complete your first set — at that point it becomes part of your active workout and continues running even if you navigate away. If you leave without completing any sets, the workout is discarded and the timer resets.</p>
+        </div>
+        <div>
+          <h3 style="font-size: 18px; font-weight: 800; margin: 0 0 8px;">What happens if I forget to end my workout?</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: var(--sec); margin: 0; max-width: 640px;">After 15 minutes of no activity — no set completions and no exercise timer running — your workout ends automatically. If you completed at least one set, the session is saved exactly as if you tapped Finish. If nothing was logged, the workout is quietly discarded.</p>
+        </div>
+        <div>
+          <h3 style="font-size: 18px; font-weight: 800; margin: 0 0 8px;">Can I add exercises during a workout?</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: var(--sec); margin: 0; max-width: 640px;">Yes — tap "Add Exercise" at the bottom of the active workout screen to add any exercise from the library mid-session.</p>
+        </div>
+      </div>
+
+      <div style="padding: 32px 24px 32px 0; border-bottom: 1px solid var(--line); font-size: 12px; font-weight: 900; letter-spacing: 1.8px; text-transform: uppercase; color: var(--brand);">Volume &amp; sets</div>
+      <div style="padding: 32px 0; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 28px;">
+        <div>
+          <h3 style="font-size: 18px; font-weight: 800; margin: 0 0 8px;">How is volume calculated?</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: var(--sec); margin: 0; max-width: 640px;">Volume = weight × reps, summed across all completed weighted sets. Bodyweight and duration exercises do not contribute to volume.</p>
+        </div>
+        <div>
+          <h3 style="font-size: 18px; font-weight: 800; margin: 0 0 8px;">Does volume include warmup sets?</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: var(--sec); margin: 0; max-width: 640px;">Yes — every completed set counts toward total session volume, warmup or working. Volume is volume.</p>
+        </div>
+        <div>
+          <h3 style="font-size: 18px; font-weight: 800; margin: 0 0 8px;">What happens to skipped sets when I finish a workout?</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: var(--sec); margin: 0; max-width: 640px;">Only completed sets are saved to your history. Incomplete sets are discarded — they will not appear in your session log or affect your stats.</p>
+        </div>
+      </div>
+
+      <div style="padding: 32px 24px 32px 0; border-bottom: 1px solid var(--line); font-size: 12px; font-weight: 900; letter-spacing: 1.8px; text-transform: uppercase; color: var(--brand);">Grouping</div>
+      <div style="padding: 32px 0; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 28px;">
+        <div>
+          <h3 style="font-size: 18px; font-weight: 800; margin: 0 0 8px;">How does grouping exercises into a superset or circuit work?</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: var(--sec); margin: 0; max-width: 640px;">Tap between two exercises in the workout builder to group them. A superset alternates between exercises with no rest in between; a circuit cycles through several exercises in the same way. Within a group, every exercise runs in lock-step — they must have the same number of working sets.</p>
+        </div>
+        <div>
+          <h3 style="font-size: 18px; font-weight: 800; margin: 0 0 8px;">How does rest work inside a group?</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: var(--sec); margin: 0; max-width: 640px;">Rest is taken between rounds, not between exercises within a round. Only the last exercise in the group has its rest period applied — you flow exercise-to-exercise inside a round, then rest before starting the next round.</p>
+        </div>
+      </div>
+
+      <div style="padding: 32px 24px 32px 0; border-bottom: 1px solid var(--line); font-size: 12px; font-weight: 900; letter-spacing: 1.8px; text-transform: uppercase; color: var(--brand);">Records &amp; programs</div>
+      <div style="padding: 32px 0; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 28px;">
+        <div>
+          <h3 style="font-size: 18px; font-weight: 800; margin: 0 0 8px;">How are personal records tracked?</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: var(--sec); margin: 0; max-width: 640px;">Lift It tracks your best weight, reps, volume, and duration per exercise. A PR badge appears on the workout summary screen whenever you set a new record. Warmup sets are intentionally excluded so light prep work does not inflate your records.</p>
+        </div>
+        <div>
+          <h3 style="font-size: 18px; font-weight: 800; margin: 0 0 8px;">What is the difference between ad-hoc and scheduled programs?</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: var(--sec); margin: 0; max-width: 640px;">Ad-hoc programs let you pick any workout freely each session. Scheduled programs assign specific workouts to days of the week, so your plan is laid out for you in advance.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isPrivacy }}">
+  <main style="max-width: 1240px; margin: 0 auto; padding: 80px 32px;">
+    <div style="font-size: 13px; font-weight: 900; letter-spacing: 4px; text-transform: uppercase; color: var(--brand);">Legal</div>
+    <h1 style="font-size: clamp(44px, 6vw, 72px); line-height: 0.92; font-weight: 900; letter-spacing: -1.5px; text-transform: uppercase; margin: 24px 0 0;">Privacy<br />policy<span style="color: var(--brand);">.</span></h1>
+    <div style="font-size: 12px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--sec); margin-top: 24px;">Last updated — [DATE]</div>
+
+    <div style="border: 1px dashed var(--brand); padding: 18px 20px; margin-top: 40px; max-width: 760px;">
+      <div style="font-family: ui-monospace, Menlo, monospace; font-size: 12px; line-height: 1.6; color: var(--brand);">PLACEHOLDER — replace every [BRACKETED] block below with your reviewed legal text. The section headings are laid out for you; the body copy is not legal advice and must not ship as-is.</div>
+    </div>
+
+    <div style="margin-top: 56px; max-width: 760px; display: flex; flex-direction: column; gap: 0;">
+      <div style="border-top: 1px solid var(--line); padding: 28px 0;">
+        <h2 style="font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; margin: 0 0 12px;">1. Information we collect</h2>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--sec); margin: 0;">[Account information, workout and body data you enter, device and diagnostic data, purchase records.]</p>
+      </div>
+      <div style="border-top: 1px solid var(--line); padding: 28px 0;">
+        <h2 style="font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; margin: 0 0 12px;">2. How we use it</h2>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--sec); margin: 0;">[Providing the service, syncing across devices, support, and improving the app.]</p>
+      </div>
+      <div style="border-top: 1px solid var(--line); padding: 28px 0;">
+        <h2 style="font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; margin: 0 0 12px;">3. Storage and processors</h2>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--sec); margin: 0;">[Which third-party services store or process data on your behalf, and where.]</p>
+      </div>
+      <div style="border-top: 1px solid var(--line); padding: 28px 0;">
+        <h2 style="font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; margin: 0 0 12px;">4. Health data</h2>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--sec); margin: 0;">[How health and fitness data is handled, and what is shared with Apple Health or Google Health Connect.]</p>
+      </div>
+      <div style="border-top: 1px solid var(--line); padding: 28px 0;">
+        <h2 style="font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; margin: 0 0 12px;">5. Sharing and disclosure</h2>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--sec); margin: 0;">[When, if ever, data leaves your control.]</p>
+      </div>
+      <div style="border-top: 1px solid var(--line); padding: 28px 0;">
+        <h2 style="font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; margin: 0 0 12px;">6. Your rights and choices</h2>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--sec); margin: 0;">[Access, export, correction, deletion, and how to exercise each.]</p>
+      </div>
+      <div style="border-top: 1px solid var(--line); padding: 28px 0;">
+        <h2 style="font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; margin: 0 0 12px;">7. Data retention</h2>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--sec); margin: 0;">[How long data is kept, and what happens after account deletion.]</p>
+      </div>
+      <div style="border-top: 1px solid var(--line); padding: 28px 0;">
+        <h2 style="font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; margin: 0 0 12px;">8. Children</h2>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--sec); margin: 0;">[Minimum age and how under-age accounts are handled.]</p>
+      </div>
+      <div style="border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 28px 0;">
+        <h2 style="font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; margin: 0 0 12px;">9. Contact</h2>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--sec); margin: 0;">Questions about this policy: <a href="{{ mailtoHref }}" style="color: var(--brand);">{{ supportEmailText }}</a></p>
+      </div>
+    </div>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isTerms }}">
+  <main style="max-width: 1240px; margin: 0 auto; padding: 80px 32px;">
+    <div style="font-size: 13px; font-weight: 900; letter-spacing: 4px; text-transform: uppercase; color: var(--brand);">Legal</div>
+    <h1 style="font-size: clamp(44px, 6vw, 72px); line-height: 0.92; font-weight: 900; letter-spacing: -1.5px; text-transform: uppercase; margin: 24px 0 0;">Terms of<br />service<span style="color: var(--brand);">.</span></h1>
+    <div style="font-size: 12px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--sec); margin-top: 24px;">Last updated — [DATE]</div>
+
+    <div style="border: 1px dashed var(--brand); padding: 18px 20px; margin-top: 40px; max-width: 760px;">
+      <div style="font-family: ui-monospace, Menlo, monospace; font-size: 12px; line-height: 1.6; color: var(--brand);">PLACEHOLDER — replace every [BRACKETED] block below with your reviewed legal text.</div>
+    </div>
+
+    <div style="margin-top: 56px; max-width: 760px;">
+      <div style="border-top: 1px solid var(--line); padding: 28px 0;">
+        <h2 style="font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; margin: 0 0 12px;">1. Acceptance of terms</h2>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--sec); margin: 0;">[The agreement between you and the operator of Lift It.]</p>
+      </div>
+      <div style="border-top: 1px solid var(--line); padding: 28px 0;">
+        <h2 style="font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; margin: 0 0 12px;">2. Accounts</h2>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--sec); margin: 0;">[Eligibility, sign-in providers, account security and termination.]</p>
+      </div>
+      <div style="border-top: 1px solid var(--line); padding: 28px 0;">
+        <h2 style="font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; margin: 0 0 12px;">3. Subscriptions and billing</h2>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--sec); margin: 0;">[Trial length, renewal, cancellation, refunds, and that billing is handled by the App Store and Google Play.]</p>
+      </div>
+      <div style="border-top: 1px solid var(--line); padding: 28px 0;">
+        <h2 style="font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; margin: 0 0 12px;">4. Acceptable use</h2>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--sec); margin: 0;">[What you may not do with the service.]</p>
+      </div>
+      <div style="border-top: 1px solid var(--line); padding: 28px 0;">
+        <h2 style="font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; margin: 0 0 12px;">5. Your content</h2>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--sec); margin: 0;">[Ownership of the workouts, photos and measurements you enter, and the licence you grant to operate the service.]</p>
+      </div>
+      <div style="border-top: 1px solid var(--line); padding: 28px 0;">
+        <h2 style="font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; margin: 0 0 12px;">6. Health disclaimer</h2>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--sec); margin: 0;">[Lift It is not medical advice; consult a professional before starting a training programme.]</p>
+      </div>
+      <div style="border-top: 1px solid var(--line); padding: 28px 0;">
+        <h2 style="font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; margin: 0 0 12px;">7. Disclaimers and limitation of liability</h2>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--sec); margin: 0;">[Warranty disclaimer and liability cap.]</p>
+      </div>
+      <div style="border-top: 1px solid var(--line); padding: 28px 0;">
+        <h2 style="font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; margin: 0 0 12px;">8. Changes to these terms</h2>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--sec); margin: 0;">[How updates are announced and when they take effect.]</p>
+      </div>
+      <div style="border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 28px 0;">
+        <h2 style="font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3px; margin: 0 0 12px;">9. Contact</h2>
+        <p style="font-size: 15px; line-height: 1.65; color: var(--sec); margin: 0;">Questions about these terms: <a href="{{ mailtoHref }}" style="color: var(--brand);">{{ supportEmailText }}</a></p>
+      </div>
+    </div>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isChangelog }}">
+  <main style="max-width: 1240px; margin: 0 auto; padding: 80px 32px;">
+    <div style="font-size: 13px; font-weight: 900; letter-spacing: 4px; text-transform: uppercase; color: var(--brand);">Releases</div>
+    <h1 style="font-size: clamp(44px, 6vw, 72px); line-height: 0.92; font-weight: 900; letter-spacing: -1.5px; text-transform: uppercase; margin: 24px 0 0;">Changelog<span style="color: var(--brand);">.</span></h1>
+
+    <div style="border: 1px dashed var(--brand); padding: 18px 20px; margin-top: 40px; max-width: 760px;">
+      <div style="font-family: ui-monospace, Menlo, monospace; font-size: 12px; line-height: 1.6; color: var(--brand);">PLACEHOLDER — one entry per shipped build. Replace the versions, dates and bullets below with your real release notes.</div>
+    </div>
+
+    <div style="margin-top: 56px; max-width: 860px;">
+      <div style="display: grid; grid-template-columns: 200px 1fr; border-top: 1px solid var(--line2);">
+        <div style="padding: 32px 24px 32px 0; border-bottom: 1px solid var(--line);">
+          <div style="font-size: 26px; font-weight: 900; letter-spacing: -0.4px;">[1.2.0]</div>
+          <div style="font-size: 11px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--sec); margin-top: 6px;">[DATE]</div>
+        </div>
+        <div style="padding: 32px 0; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 8px;">
+          <div style="font-size: 15px; line-height: 1.6; color: var(--sec);">[What shipped in this release.]</div>
+          <div style="font-size: 15px; line-height: 1.6; color: var(--sec);">[Second bullet.]</div>
+        </div>
+
+        <div style="padding: 32px 24px 32px 0; border-bottom: 1px solid var(--line);">
+          <div style="font-size: 26px; font-weight: 900; letter-spacing: -0.4px;">[1.1.0]</div>
+          <div style="font-size: 11px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--sec); margin-top: 6px;">[DATE]</div>
+        </div>
+        <div style="padding: 32px 0; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 8px;">
+          <div style="font-size: 15px; line-height: 1.6; color: var(--sec);">[What shipped in this release.]</div>
+        </div>
+
+        <div style="padding: 32px 24px 32px 0; border-bottom: 1px solid var(--line);">
+          <div style="font-size: 26px; font-weight: 900; letter-spacing: -0.4px;">[1.0.0]</div>
+          <div style="font-size: 11px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--sec); margin-top: 6px;">[DATE]</div>
+        </div>
+        <div style="padding: 32px 0; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 8px;">
+          <div style="font-size: 15px; line-height: 1.6; color: var(--sec);">[First public release.]</div>
+        </div>
+      </div>
+    </div>
+  </main>
+  </sc-if>
+
+  <footer style="border-top: 1px solid var(--line); margin-top: 0;">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 56px 32px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <img data-icon="dark" src="assets/hex_icon_dark.svg" alt="" width="24" height="24" style="display: block;" />
+          <img data-icon="light" src="assets/hex_icon_light.svg" alt="" width="24" height="24" style="display: block;" />
+          <span style="font-size: 13px; font-weight: 900; letter-spacing: 4px; text-transform: uppercase;">LiftIt</span>
+        </div>
+        <div style="font-size: 13px; line-height: 1.55; color: var(--sec); max-width: 240px;">A training log for people who care what the bar weighed last week.</div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="font-size: 10px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; color: var(--sec);">App</div>
+        <a href="#" onClick="{{ goHome }}" style="font-size: 14px; color: var(--ink);">Overview</a>
+        <a href="#" onClick="{{ goPricing }}" style="font-size: 14px; color: var(--ink);">Pricing</a>
+        <a href="#" onClick="{{ goChangelog }}" style="font-size: 14px; color: var(--ink);">Changelog</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="font-size: 10px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; color: var(--sec);">Legal</div>
+        <a href="#" onClick="{{ goPrivacy }}" style="font-size: 14px; color: var(--ink);">Privacy Policy</a>
+        <a href="#" onClick="{{ goTerms }}" style="font-size: 14px; color: var(--ink);">Terms of Service</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="font-size: 10px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; color: var(--sec);">Get it</div>
+        <a href="#" onClick="{{ goSupport }}" style="font-size: 14px; color: var(--ink);">Support</a>
+        <a href="{{ appStoreHref }}" style="font-size: 14px; color: var(--ink);">App Store</a>
+        <a href="{{ playStoreHref }}" style="font-size: 14px; color: var(--ink);">Google Play</a>
+      </div>
+    </div>
+    <div style="border-top: 1px solid var(--line);">
+      <div style="max-width: 1240px; margin: 0 auto; padding: 20px 32px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; font-size: 11px; font-weight: 600; letter-spacing: 1.4px; text-transform: uppercase; color: var(--sec);">
+        <span>© 2026 Lift It</span>
+        <a href="{{ mailtoHref }}" style="color: var(--sec);">{{ supportEmailText }}</a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;defaultTheme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;dark&quot;,&quot;tsType&quot;:&quot;'dark' | 'light'&quot;,&quot;section&quot;:&quot;Site&quot;},&quot;supportEmail&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;support@self-iterate.com&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Site&quot;},&quot;appStoreUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Store links&quot;},&quot;playStoreUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Store links&quot;}}">
+class Component extends DCLogic {
+  state = { page: 'home' };
+
+  componentDidMount() {
+    const t = this.props.defaultTheme === 'light' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', t);
+    const h = (location.hash || '').replace('#', '');
+    if (['home','pricing','support','privacy','terms','changelog'].includes(h)) {
+      this.setState({ page: h });
+    }
+  }
+
+  go = (page) => (e) => {
+    if (e) e.preventDefault();
+    this.setState({ page });
+    try { history.replaceState(null, '', '#' + page); } catch (err) {}
+    window.scrollTo(0, 0);
+  };
+
+  toggleTheme = () => {
+    const el = document.documentElement;
+    el.setAttribute('data-theme', el.getAttribute('data-theme') === 'light' ? 'dark' : 'light');
+  };
+
+  renderVals() {
+    const p = this.state.page;
+    const email = this.props.supportEmail ?? 'support@self-iterate.com';
+    return {
+      isHome: p === 'home',
+      isPricing: p === 'pricing',
+      isSupport: p === 'support',
+      isPrivacy: p === 'privacy',
+      isTerms: p === 'terms',
+      isChangelog: p === 'changelog',
+      goHome: this.go('home'),
+      goPricing: this.go('pricing'),
+      goSupport: this.go('support'),
+      goPrivacy: this.go('privacy'),
+      goTerms: this.go('terms'),
+      goChangelog: this.go('changelog'),
+      toggleTheme: this.toggleTheme,
+      supportEmailText: email,
+      mailtoHref: 'mailto:' + email,
+      appStoreHref: this.props.appStoreUrl ?? '#',
+      playStoreHref: this.props.playStoreUrl ?? '#',
+    };
+  }
+}
+</script>
 </body>
 </html>

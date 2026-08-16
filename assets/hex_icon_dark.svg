@@ -1,0 +1,34 @@
+<svg width="512" height="512" viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg">
+  <title>Hex dumbbell icon — dark metallic</title>
+  <defs>
+    <linearGradient id="metalDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EAEFF7"></stop>
+      <stop offset="50%" stop-color="#A8B1C3"></stop>
+      <stop offset="100%" stop-color="#DFE5EF"></stop>
+    </linearGradient>
+    <linearGradient id="metalDarkInner" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E6EBF4"></stop>
+      <stop offset="50%" stop-color="#9AA3B6"></stop>
+      <stop offset="100%" stop-color="#D8DFEB"></stop>
+    </linearGradient>
+    <linearGradient id="innerFaceDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0A1A2E"></stop>
+      <stop offset="50%" stop-color="#14294A"></stop>
+      <stop offset="100%" stop-color="#081325"></stop>
+    </linearGradient>
+    <linearGradient id="ringBlueDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1B76CC"></stop>
+      <stop offset="50%" stop-color="#14579A"></stop>
+      <stop offset="100%" stop-color="#0E4176"></stop>
+    </linearGradient>
+  </defs>
+  <g transform="translate(170,170)">
+    <rect x="-170" y="-170" width="340" height="340" fill="#101010"></rect>
+    <path d="M -12.98 -102.48 Q 0 -110 12.98 -102.48 L 82.02 -62.52 Q 95 -55 95 -40 L 95 40 Q 95 55 82.02 62.52 L 12.98 102.48 Q 0 110 -12.98 102.48 L -82.02 62.52 Q -95 55 -95 40 L -95 -40 Q -95 -55 -82.02 -62.52 Z" fill="url(#ringBlueDark)" stroke="none"></path>
+    <path d="M -12.98 -102.48 Q 0 -110 12.98 -102.48 L 82.02 -62.52 Q 95 -55 95 -40 L 95 40 Q 95 55 82.02 62.52 L 12.98 102.48 Q 0 110 -12.98 102.48 L -82.02 62.52 Q -95 55 -95 40 L -95 -40 Q -95 -55 -82.02 -62.52 Z" fill="none" stroke="url(#metalDark)" stroke-width="5" stroke-linejoin="round"></path>
+    <path d="M -12.98 -102.48 Q 0 -110 12.98 -102.48 L 82.02 -62.52 Q 95 -55 95 -40 L 95 -38" fill="none" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="1" stroke-linecap="round"></path>
+    <path d="M -8.66 -63.01 Q 0 -68 8.66 -63.01 L 50.34 -38.99 Q 59 -34 59 -24 L 59 24 Q 59 34 50.34 38.99 L 8.66 63.01 Q 0 68 -8.66 63.01 L -50.34 38.99 Q -59 34 -59 24 L -59 -24 Q -59 -34 -50.34 -38.99 Z" fill="url(#innerFaceDark)" stroke="url(#metalDarkInner)" stroke-width="8" stroke-linejoin="round"></path>
+    <path d="M -8.66 -63.01 Q 0 -68 8.66 -63.01 L 50.34 -38.99 Q 59 -34 59 -24 L 59 -22" fill="none" stroke="#FFFFFF" stroke-opacity="0.3" stroke-width="1.2" stroke-linecap="round"></path>
+    <path d="M -50.34 38.99 Q -59 34 -59 24 L -59 22" fill="none" stroke="#000000" stroke-opacity="0.2" stroke-width="1.2" stroke-linecap="round"></path>
+  </g>
+</svg>
