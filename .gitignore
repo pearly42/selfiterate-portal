@@ -2,3 +2,4 @@
 .thumbnail
 *.zip
 .DS_Store
+test-results/
