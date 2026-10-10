@@ -5108,7 +5108,7 @@
     <script
       type="text/x-dc"
       data-dc-script
-      data-props='{"defaultTheme":{"editor":"enum","options":["dark","light"],"default":"dark","tsType":"&apos;dark&apos; | &apos;light&apos;","section":"Site"},"supportEmail":{"editor":"text","default":"support@self-iterate.com","tsType":"string","section":"Site"},"appStoreUrl":{"editor":"text","default":"#","tsType":"string","section":"Store links"},"playStoreUrl":{"editor":"text","default":"#","tsType":"string","section":"Store links"}}'
+      data-props='{"defaultTheme":{"editor":"enum","options":["dark","light"],"default":"dark","tsType":"&apos;dark&apos; | &apos;light&apos;","section":"Site"},"supportEmail":{"editor":"text","default":"support@self-iterate.com","tsType":"string","section":"Site"},"appStoreUrl":{"editor":"text","default":"https://apps.apple.com/app/id6807211805","tsType":"string","section":"Store links"},"playStoreUrl":{"editor":"text","default":"https://play.google.com/store/apps/details?id=com.selfiterate.liftit","tsType":"string","section":"Store links"}}'
     >
       class Component extends DCLogic {
         state = { page: 'home' };
@@ -5151,8 +5151,8 @@
             toggleTheme: this.toggleTheme,
             supportEmailText: email,
             mailtoHref: 'mailto:' + email,
-            appStoreHref: this.props.appStoreUrl ?? '#',
-            playStoreHref: this.props.playStoreUrl ?? '#',
+            appStoreHref: this.props.appStoreUrl ?? 'https://apps.apple.com/app/id6807211805',
+            playStoreHref: this.props.playStoreUrl ?? 'https://play.google.com/store/apps/details?id=com.selfiterate.liftit',
           };
         }
       }
